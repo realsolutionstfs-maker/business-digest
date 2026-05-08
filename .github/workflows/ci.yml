@@ -1,0 +1,47 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "0 8 * * 6"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Test fetch & score
+        run: python run.py --mode fetch
+      - name: Test weekly generation
+        run: python run.py --mode weekly
+
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Deploy landing page to gh-pages
+        run: |
+          cp templates/landing.html index.html
+          git config user.name "CI Bot"
+          git config user.email "bot@businessdigest.com"
+          git add index.html
+          git stash || true
+          git fetch origin gh-pages 2>/dev/null || true
+          git checkout gh-pages 2>/dev/null || git checkout --orphan gh-pages
+          git rm -rf . 2>/dev/null || true
+          git checkout main -- templates/landing.html
+          cp templates/landing.html index.html
+          git add index.html
+          git commit -m "Auto-deploy $(date +%Y-%m-%d)"
+          git push origin gh-pages

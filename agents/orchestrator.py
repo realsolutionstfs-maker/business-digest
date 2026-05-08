@@ -146,6 +146,22 @@ class Orchestrator:
         logger.info("=" * 60)
         return True
 
+    def generate_daily_social(self):
+        logger.info("=" * 60)
+        logger.info("DAILY SOCIAL GENERATION")
+        logger.info("=" * 60)
+
+        from .social_distributor import generate_daily_social
+        social = generate_daily_social()
+        for platform, content in social.items():
+            path = BASE_DIR / "output" / "social" / f"{platform}_{datetime.now().strftime('%Y%m%d')}_daily.txt"
+            path.write_text(content)
+        logger.info(f"  Daily social generated ({', '.join(social.keys())})")
+        logger.info("=" * 60)
+        logger.info("DAILY SOCIAL COMPLETE")
+        logger.info("=" * 60)
+        return True
+
 
 def main():
     parser = argparse.ArgumentParser(description="AI Media Company — Autonomous Publisher")

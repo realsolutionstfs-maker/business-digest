@@ -398,6 +398,85 @@ By 2024, Azure was the second-largest cloud provider. Microsoft was worth $3 tri
 Sometimes the best come back is not a turnaround — it's a reinvention. The hardest thing to change is your identity.
 """,
 
+    "Nvidia": """[0:00]
+**HOOK**
+In 1993, three engineers at a Denny's diner sketched a chip that would one day become the most important piece of silicon on earth. 30 years later, Nvidia was worth $3 trillion.
+
+[0:30-3:00]
+**ACT I — THE RISE**
+Jensen Huang, Chris Malachowsky, and Curtis Priem started Nvidia to make graphics chips for video games. The first product failed. The second almost bankrupt them. By the third — the RIVA 128 — they had a hit.
+
+The breakthrough was the GPU: a chip designed for parallel processing. Games needed it. Turns out, so did AI.
+
+[3:00-7:00]
+**ACT II — THE STRUGGLE**
+In 2010, Nvidia bet everything on CUDA — a programming platform that let developers use GPUs for non-graphics work. It cost $500 million a year in R&D. For years, nobody used it.
+
+CEO Jensen Huang: "We were investing in something that had zero revenue. The board was patient, but uncomfortable."
+
+Then in 2012, Alex Krizhevsky used Nvidia GPUs to win the ImageNet competition. The AI revolution had found its engine.
+
+[7:00-9:30]
+**ACT III — THE RESOLUTION**
+By 2024, Nvidia's H100 GPU was the most sought-after hardware on earth. 80% of AI training runs on Nvidia. Revenue hit $60 billion. Market cap passed $3 trillion — surpassing Apple and Microsoft for a time.
+
+[9:30-10:00]
+**TAKEAWAY**
+The biggest opportunities look like hobbies for the first decade. Invest in what seems useless today. It might be essential tomorrow.
+""",
+
+    "OpenAI": """[0:00]
+**HOOK**
+Elon Musk started an AI nonprofit in 2015 because he thought Google was going to build Skynet. 8 years later, that nonprofit was a $90 billion company — and Musk was suing them.
+
+[0:30-3:00]
+**ACT I — THE RISE**
+Sam Altman, Elon Musk, and other tech leaders pledged $1 billion to OpenAI. Mission: build safe AGI. Nonprofit. Open. For humanity.
+
+By 2018, Musk left. He wanted control. They refused. The relationship never recovered.
+
+[3:00-7:00]
+**ACT II — THE STRUGGLE**
+Without Musk's money, OpenAI needed cash. Altman created a "capped profit" structure — investors could earn 100x, no more. Microsoft invested $1 billion. Then $10 billion more.
+
+The breakthrough: GPT-3 in 2020. Then ChatGPT in 2022 — 100 million users in 2 months. Fastest adoption in history.
+
+[7:00-9:30]
+**ACT III — THE RESOLUTION**
+In 2023, the board fired Altman. 700 employees threatened to quit. Microsoft hired him. Five days later, he was back as CEO. The board that fired him resigned.
+
+By 2024, OpenAI was valued at $90 billion. The nonprofit had become the most valuable AI company in the world.
+
+[9:30-10:00]
+**TAKEAWAY**
+Structure follows power. No governance document survives contact with a successful product.
+""",
+
+    "Spotify": """[0:00]
+**HOOK**
+Daniel Ek grew up in a Stockholm housing project. He built a music service that destroyed the industry — and then saved it.
+
+[0:30-3:00]
+**ACT I — THE RISE**
+Ek's first startup sold for $30 million when he was 23. But he noticed something: piracy was killing music. The industry was losing $10B/year. The problem wasn't pirates — it was that legal options were terrible.
+
+Spotify launched in 2008. Instant access to millions of songs. Free with ads. Paid for no ads. The labels hated it — until they saw the revenue.
+
+[3:00-7:00]
+**ACT II — THE STRUGGLE**
+Every deal was a war. Labels demanded advances, equity, ownership. Ek gave them equity in exchange for licenses. It worked — but Spotify didn't turn a profit for a decade.
+
+Apple Music launched in 2015. Then Amazon. Then Google. All had deeper pockets. Spotify's answer: podcasting. $1B invested in Joe Rogan, Gimlet, Anchor.
+
+[7:00-9:30]
+**ACT III — THE RESOLUTION**
+By 2024, Spotify had 600 million users. It finally turned its first profit. But the labels still control the music — and they take 70% of every dollar.
+
+[9:30-10:00]
+**TAKEAWAY**
+If you can't control the supply, control the distribution. The middleman who delivers value survives.
+""",
+
     "Google": """[0:00]
 **HOOK**
 Two Stanford PhD students built a search engine in a rented garage. They called it Google — a misspelling of "googol," meaning 1 followed by 100 zeros. They had no business model. No revenue. Just a belief that search could be better.

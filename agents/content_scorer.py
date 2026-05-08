@@ -59,25 +59,35 @@ def _is_spam(url: str) -> bool:
 
 def scrape_feeds(feeds: list[dict]) -> list[dict]:
     articles = []
+    failed = 0
     for feed in feeds:
-        try:
-            parsed = feedparser.parse(feed["url"])
-            for entry in parsed.entries[:10]:
-                url = entry.get("link", "")
-                if _is_spam(url):
+        for attempt in range(2):
+            try:
+                parsed = feedparser.parse(feed["url"])
+                if not parsed.entries:
+                    raise Exception("Empty feed")
+                for entry in parsed.entries[:10]:
+                    url = entry.get("link", "")
+                    if _is_spam(url):
+                        continue
+                    articles.append({
+                        "title": entry.get("title", ""),
+                        "url": url,
+                        "snippet": entry.get("summary", "")[:500],
+                        "source": feed["name"],
+                        "category": feed["category"],
+                        "published": entry.get("published", datetime.now().isoformat()),
+                        "feed_url": feed["url"],
+                    })
+                break
+            except Exception as e:
+                if attempt == 0:
                     continue
-                articles.append({
-                    "title": entry.get("title", ""),
-                    "url": url,
-                    "snippet": entry.get("summary", "")[:500],
-                    "source": feed["name"],
-                    "category": feed["category"],
-                    "published": entry.get("published", datetime.now().isoformat()),
-                    "feed_url": feed["url"],
-                })
-        except Exception as e:
-            logger.warning(f"Failed to parse {feed['name']}: {e}")
+                failed += 1
+                logger.warning(f"Failed to parse {feed['name']}: {e}")
 
+    if failed:
+        logger.info(f"  {failed} feeds failed after retry")
     articles.sort(key=lambda a: a.get("published", ""), reverse=True)
     return articles[:15]
 

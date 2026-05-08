@@ -1,5 +1,5 @@
+from datetime import datetime
 from .config import logger
-
 
 _TEMPLATES = {
     "narrative": {
@@ -106,6 +106,98 @@ The most revealing business stories don't appear in earnings calls or press rele
 
 *Subscribe to Business Digest for three moves every Saturday. Zero noise.*""",
     },
+    "analysis": {
+        "linkedin": """Most business analysis tells you what happened. The better question is why — and what to do about it.
+
+{title}
+
+Here's the framework I use:
+
+1. What changed? (The trigger)
+2. Why did it change? (The cause)
+3. Who benefits? (The incentive)
+4. What happens next? (The second-order effect)
+
+The best strategists don't predict the future. They ask better questions.
+
+#BusinessStrategy #Analysis #DecisionMaking""",
+
+        "twitter": """1/ Most analysis focuses on "what happened." That's the easy part.
+
+2/ The hard part: why did it happen, and what do you do differently?
+
+3/ Four questions every strategist should ask:
+• What changed?
+• Why did it change?
+• Who benefits?
+• What happens next?
+
+4/ The best operators don't predict. They prepare.
+
+/share""",
+
+        "blog": """## Strategic Analysis: {title}
+
+The difference between good and great analysis is the question you ask. Most people ask "what happened?" The best ask "what should I do differently?"
+
+**The framework:**
+1. **Trigger** — What changed in the market?
+2. **Cause** — Why did it change? (Deeper than the press release)
+3. **Incentives** — Who wins, who loses?
+4. **Second-order** — What happens when the dust settles?
+
+**The takeaway:** Analysis without action is entertainment. Always end with a decision.
+
+---
+
+*Subscribe to Business Digest for three moves every Saturday. Zero noise.*""",
+    },
+    "industry": {
+        "linkedin": """Industries don't change overnight. They change one decision at a time — until suddenly the old rules don't apply anymore.
+
+{title}
+
+Here's what I'm watching:
+
+The signals were there for anyone paying attention. A competitor changed pricing. A new regulation was proposed. A technology crossed a cost threshold. Individually, nothing. Together, everything.
+
+The companies that win aren't the ones with the most resources. They're the ones that act before they have to.
+
+#IndustryTrends #BusinessStrategy #FutureOfWork""",
+
+        "twitter": """1/ Every industry shift follows the same pattern.
+
+First, nobody notices.
+Then, everybody panics.
+
+2/ The signals are always there:
+• Pricing changes
+• Regulatory shifts
+• Cost thresholds crossed
+
+3/ Individually, nothing.
+Together, everything.
+
+4/ The winners act before they have to. The losers wait until it's obvious.
+
+/share""",
+
+        "blog": """## Industry Shift: {title}
+
+Industries change one decision at a time. The trick is spotting which decisions matter.
+
+**What to watch:**
+- Pricing moves by competitors
+- Regulatory changes
+- Technology cost curves
+- Talent flows
+
+**The pattern:** When multiple signals converge, the shift accelerates. The best time to prepare is before it's obvious.
+
+---
+
+*Subscribe to Business Digest for three moves every Saturday. Zero noise.*""",
+    },
 }
 
 
@@ -113,8 +205,12 @@ def _pick_templates(angle: str) -> dict:
     angle_lower = angle.lower()
     if "narrative" in angle_lower:
         return _TEMPLATES["narrative"]
-    if "inside" in angle_lower:
+    if "inside" in angle_lower or "surprise" in angle_lower:
         return _TEMPLATES["inside"]
+    if "analysis" in angle_lower or "business" in angle_lower:
+        return _TEMPLATES["analysis"]
+    if "industry" in angle_lower or "update" in angle_lower:
+        return _TEMPLATES["industry"]
     return _TEMPLATES["narrative"]
 
 
@@ -140,5 +236,57 @@ def distribute(newsletter_content: str, articles: list = None) -> dict:
     linkedin = templates["linkedin"].format(title=title)
     twitter = templates["twitter"].format(title=title)
     blog = templates["blog"].format(title=title)
+
+    return {"linkedin": linkedin, "twitter": twitter, "blog": blog}
+
+
+def generate_daily_social() -> dict:
+    from .newsletter_writer import TOOLS
+    week = datetime.now().isocalendar()[1]
+    tool = TOOLS[week % len(TOOLS)]
+    day = datetime.now().strftime("%A")
+
+    quotes = {
+        "Monday": '"The best time to plant a tree was 20 years ago. The second best time is now." — Chinese proverb',
+        "Tuesday": '"In the middle of difficulty lies opportunity." — Albert Einstein',
+        "Wednesday": '"It does not matter how slowly you go as long as you do not stop." — Confucius',
+        "Thursday": '"The impediment to action advances action. What stands in the way becomes the way." — Marcus Aurelius',
+        "Friday": '"Success is not final, failure is not fatal: it is the courage to continue that counts." — Winston Churchill',
+    }
+
+    q = quotes.get(day, "")
+
+    linkedin = f"""This week's framework: **{tool['name']}**
+
+{tool['body'][:400]}
+
+**Apply it today:**
+{tool['apply']}
+
+{q}
+
+#BusinessFrameworks #WeeklyTool #Entrepreneurship"""
+
+    twitter = f"""This week's tool: {tool['name']}
+
+{tool['body'][:280]}
+
+Try it today:
+{tool['apply'][:200]}
+
+/share"""
+
+    blog = f"""## Daily Framework: {tool['name']}
+
+{tool['body']}
+
+**Today's application:**
+{tool['apply']}
+
+{q}
+
+---
+
+*Subscribe to Business Digest for three moves every Saturday. Zero noise.*"""
 
     return {"linkedin": linkedin, "twitter": twitter, "blog": blog}

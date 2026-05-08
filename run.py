@@ -47,7 +47,7 @@ def main():
         "setup": orchestrator.setup,
         "fetch": orchestrator.fetch_and_score,
         "weekly": orchestrator.generate_weekly,
-        "daily": orchestrator.generate_weekly,
+        "daily": orchestrator.generate_daily_social,
         "send": send_latest,
         "publish": publish,
         "all": lambda: (orchestrator.setup(), orchestrator.fetch_and_score(), orchestrator.generate_weekly()) and True,

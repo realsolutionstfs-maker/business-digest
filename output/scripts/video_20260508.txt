@@ -1,0 +1,21 @@
+[0:00]
+**HOOK**
+Most business analysis focuses on what happened. The more valuable question is why it happened — and what it means for everyone else.
+
+[0:30-3:00]
+**ACT I — THE CONTEXT**
+Business analysis: An Interview with OpenAI CEO Sam Altman and AWS CEO Matt Garman About Bedrock Managed Agents
+
+The market doesn't move in straight lines. It shifts when enough people change their minds at the same time. Understanding why those shifts happen is the core of business strategy.
+
+[3:00-7:00]
+**ACT II — THE STRATEGY**
+The winning move often looks obvious in hindsight. That's the trap. At the time, it was a bet. The best strategists don't predict the future. They place bets where the downside is small and the upside is asymmetric.
+
+[7:00-9:30]
+**ACT III — THE LESSONS**
+Strategy is not about being right once. It's about having a process that makes you right more often than you're wrong. The best companies have this process embedded in their culture.
+
+[9:30-10:00]
+**TAKEAWAY**
+Good analysis answers "what happened." Great analysis answers "what should I do differently?"

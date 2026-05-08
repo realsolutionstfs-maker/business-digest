@@ -1,0 +1,32 @@
+[
+  {
+    "title": "An Interview with OpenAI CEO Sam Altman and AWS CEO Matt Garman About Bedrock Managed Agents",
+    "url": "https://stratechery.com/2026/an-interview-with-openai-ceo-sam-altman-and-aws-ceo-matt-garman-about-bedrock-managed-agents/",
+    "snippet": "An interview with OpenAI CEO Sam Altman and AWS CEO Matt Garman about their new partnership, plus my thoughts on OpenAI and Microsoft's new deal.",
+    "source": "Stratechery",
+    "score": 33,
+    "grade": "B",
+    "angle": "Business analysis: An Interview with OpenAI CEO Sam Altman and AWS CEO Matt Garman About Bedrock Managed Agents",
+    "company": "An Interview with OpenAI CEO Sam Altman and AWS CEO Matt"
+  },
+  {
+    "title": "Anthropic Gets in Bed With SpaceX as the AI Race Turns Weird",
+    "url": "https://www.wired.com/story/anthropic-spacex-compute-deal-colossus/",
+    "snippet": "In an unexpected turn, the two companies signed a deal for Anthropic to use computing resources from Elon Musk\u2019s xAI.",
+    "source": "Wired Business",
+    "score": 21,
+    "grade": "C",
+    "angle": "Inside story: Anthropic Gets in Bed With SpaceX as the AI Race Turns Weird",
+    "company": "Anthropic Gets in Bed With SpaceX as the AI Race Turns Weird"
+  },
+  {
+    "title": "How sunburn inspired a new way to store energy",
+    "url": "https://www.bbc.com/news/articles/c62l9gnx775o?at_medium=RSS&at_campaign=rss",
+    "snippet": "Molecules that can capture heat could be a useful technology to decarbonise heating.",
+    "source": "BBC Business",
+    "score": 16,
+    "grade": "C",
+    "angle": "Narrative deep dive: How sunburn inspired a new way to store energy",
+    "company": "How sunburn inspired a new way to store energy"
+  }
+]

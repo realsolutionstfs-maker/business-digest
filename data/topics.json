@@ -1,0 +1,11 @@
+{
+  "seed_topics": [
+    {"company": "Theranos", "angle": "How a $9B fraud fooled the smartest investors in Silicon Valley", "sources": ["Wikipedia", "Bad Blood by John Carreyrou", "SEC filings"]},
+    {"company": "WeWork", "angle": "The $47B office space fantasy that collapsed in 6 weeks", "sources": ["Wikipedia", "SEC S-1 filing", "WSJ investigation"]},
+    {"company": "Fyre Festival", "angle": "The festival that never was — a masterclass in marketing without delivery", "sources": ["Netflix documentary", "Hulu documentary", "NYT investigation"]},
+    {"company": "Airbnb", "angle": "From selling cereal boxes to $100B: how Airbnb survived 8 near-death moments", "sources": ["Wikipedia", "Founder interviews", "The Airbnb Story book"]},
+    {"company": "Stripe", "angle": "Two Irish brothers built a $95B payment engine without knowing payments", "sources": ["Stripe Press", "Founder interviews", "Forbes profile"]},
+    {"company": "Netflix", "angle": "How Netflix killed Blockbuster and then almost killed itself (twice)", "sources": ["Wikipedia", "That Will Never Work book", "Qwikster crisis analysis"]},
+    {"company": "Tesla", "angle": "The 5 times Tesla almost died and Elon Musk slept on the factory floor", "sources": ["Wikipedia", "Elon Musk biography", "SEC filings"]}
+  ]
+}

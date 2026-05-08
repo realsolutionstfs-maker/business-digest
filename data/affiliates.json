@@ -1,0 +1,10 @@
+{
+  "affiliates": [
+    {"name": "HoneyBook", "url": "https://www.honeybook.com/", "commission": "20%", "category": "business_tools"},
+    {"name": "Notion", "url": "https://www.notion.so/", "commission": "Referral credit", "category": "productivity"},
+    {"name": "ConvertKit", "url": "https://convertkit.com/", "commission": "30% recurring", "category": "email_marketing"},
+    {"name": "QuickBooks", "url": "https://quickbooks.intuit.com/", "commission": "Variable", "category": "accounting"},
+    {"name": "Canva Pro", "url": "https://www.canva.com/", "commission": "Referral", "category": "design"}
+  ],
+  "policy": "Only promote products we have personally used and verified. No Amazon Associates (low trust signal). Disclose all affiliate relationships prominently. Re-evaluate quarterly."
+}

@@ -1,0 +1,188 @@
+{
+  "name": "Business Digest — Weekly Newsletter",
+  "description": "Full weekly newsletter pipeline: RSS → DeepSeek scoring → human review → Claude writing → Buttondown → Social distribution",
+  "scenarios": [
+    {
+      "id": "newsletter_pipeline",
+      "modules": [
+        {
+          "step": 1,
+          "module": "Schedule",
+          "action": "Trigger every Monday 6:00 AM",
+          "config": {
+            "type": "every_week",
+            "day": "Monday",
+            "time": "06:00",
+            "timezone": "UTC"
+          }
+        },
+        {
+          "step": 2,
+          "module": "RSS",
+          "action": "Read 18 feeds",
+          "config": {
+            "feeds": [
+              "https://feeds.feedburner.com/TechCrunch/",
+              "https://www.forbes.com/entrepreneurs/feed/",
+              "https://rss.nytimes.com/services/xml/rss/nyt/Business.xml",
+              "https://feeds.content.dowjones.io/public/rss/mw_topstories",
+              "https://www.wired.com/feed/business/rss",
+              "https://www.inc.com/rss/feed",
+              "https://hbr.org/data/feed/rss",
+              "https://stratechery.com/feed/",
+              "https://bothsidesofthetable.com/feed",
+              "https://news.ycombinator.com/rss",
+              "https://www.reddit.com/r/Entrepreneur/.rss",
+              "https://www.reddit.com/r/startups/.rss",
+              "https://www.reddit.com/r/business/.rss",
+              "https://www.producthunt.com/feed",
+              "https://feeds.bloomberg.com/markets/news.rss",
+              "https://www.ft.com/companies/feed",
+              "https://feeds.bbci.co.uk/news/business/rss.xml",
+              "https://www.reutersagency.com/feed/"
+            ],
+            "max_items": 180
+          }
+        },
+        {
+          "step": 3,
+          "module": "DeepSeek",
+          "action": "POST /v1/chat/completions",
+          "config": {
+            "endpoint": "https://api.deepseek.com/v1/chat/completions",
+            "method": "POST",
+            "headers": {
+              "Authorization": "Bearer {{deepseek_api_key}}",
+              "Content-Type": "application/json"
+            },
+            "body": {
+              "model": "deepseek-chat",
+              "messages": [
+                {"role": "system", "content": "{{prompt_scorer}}"},
+                {"role": "user", "content": "Title: {{item.title}}\nURL: {{item.url}}\nSnippet: {{item.snippet}}"}
+              ],
+              "temperature": 0.2,
+              "max_tokens": 200
+            }
+          }
+        },
+        {
+          "step": 4,
+          "module": "Filter",
+          "action": "Keep score >= 20",
+          "config": {
+            "condition": "{{score}} >= 20"
+          }
+        },
+        {
+          "step": 5,
+          "module": "Email",
+          "action": "Send top 8 to editor for review",
+          "config": {
+            "to": "editor@businessdigest.com",
+            "subject": "Weekly Content Review — Top 8 Articles",
+            "body": "Please review the top 8 scored articles and select 3 with narrative angles for this week's content."
+          }
+        },
+        {
+          "step": 6,
+          "module": "Webhook",
+          "action": "Wait for editor selection",
+          "config": {
+            "response_type": "json",
+            "expected_fields": ["article_1", "article_2", "article_3"]
+          }
+        },
+        {
+          "step": 7,
+          "module": "Claude",
+          "action": "POST /v1/messages — Newsletter",
+          "config": {
+            "endpoint": "https://api.anthropic.com/v1/messages",
+            "method": "POST",
+            "headers": {
+              "x-api-key": "{{claude_api_key}}",
+              "anthropic-version": "2023-06-01",
+              "content-type": "application/json"
+            },
+            "body": {
+              "model": "claude-sonnet-4-20250514",
+              "max_tokens": 2500,
+              "messages": [
+                {"role": "system", "content": "{{prompt_editorial}}"},
+                {"role": "user", "content": "Write this week's edition based on the 3 selected articles."}
+              ]
+            }
+          }
+        },
+        {
+          "step": 8,
+          "module": "Buttondown",
+          "action": "POST /v1/emails",
+          "config": {
+            "endpoint": "https://api.buttondown.email/v1/emails",
+            "method": "POST",
+            "headers": {
+              "Authorization": "Token {{buttondown_api_key}}",
+              "Content-Type": "application/json"
+            },
+            "body": {
+              "subject": "{{newsletter_subject}}",
+              "body": "{{newsletter_body}}",
+              "status": "scheduled",
+              "scheduled_at": "{{next_saturday_9am}}"
+            }
+          }
+        },
+        {
+          "step": 9,
+          "module": "Claude",
+          "action": "POST /v1/messages — Social",
+          "config": {
+            "endpoint": "https://api.anthropic.com/v1/messages",
+            "method": "POST",
+            "headers": {
+              "x-api-key": "{{claude_api_key}}",
+              "anthropic-version": "2023-06-01",
+              "content-type": "application/json"
+            },
+            "body": {
+              "model": "claude-sonnet-4-20250514",
+              "max_tokens": 3000,
+              "messages": [
+                {"role": "system", "content": "{{prompt_social}}"},
+                {"role": "user", "content": "Repurpose this newsletter into LinkedIn, Twitter, and Blog content."}
+              ]
+            }
+          }
+        },
+        {
+          "step": 10,
+          "module": "HTTP",
+          "action": "Post to LinkedIn API",
+          "config": {
+            "method": "POST",
+            "url": "https://api.linkedin.com/v2/ugcPosts",
+            "headers": {
+              "Authorization": "Bearer {{linkedin_token}}"
+            },
+            "body": "{{linkedin_post_content}}"
+          }
+        },
+        {
+          "step": 11,
+          "module": "HTTP",
+          "action": "Post to X/Twitter API",
+          "config": {
+            "method": "POST",
+            "url": "https://api.twitter.com/2/tweets",
+            "headers": {
+              "Authorization": "Bearer {{twitter_token}}"
+            },
+            "body": "{{twitter_thread}}"
+          }
+        }
+      ]
+    }
+  ]
+}

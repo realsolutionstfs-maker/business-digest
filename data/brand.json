@@ -1,0 +1,36 @@
+{
+  "brand": {
+    "name": "Business Digest",
+    "tagline": "Three moves. Every Saturday. Zero noise.",
+    "mission": "Deliver actionable business intelligence to time-poor professionals through narrative-driven analysis.",
+    "audience": {
+      "primary": "Entrepreneurs and founders (0-10 employees)",
+      "secondary": "Business operators and freelancers",
+      "tertiary": "Investors and executives",
+      "psychographics": "Time-poor, value-sensitive, distrust hype, seek repeatable frameworks"
+    }
+  },
+  "voice": {
+    "tone": "Direct, authoritative, conversational. A senior colleague sharing battle-tested insight.",
+    "rules": [
+      "MAXIMUM 20 words per sentence. Average: 12-15.",
+      "Zero adjectives unless they carry semantic weight.",
+      "Active voice exclusively. 'The CEO decided' NOT 'The decision was made by the CEO'.",
+      "One idea per paragraph. A new idea requires a new paragraph.",
+      "Every 90 seconds of a video: a rhetorical question or micro-cliffhanger.",
+      "Forbidden phrases: 'in today's world', 'it's important to note', 'game-changing', 'disruptive', 'revolutionary'.",
+      "Open with the most interesting moment. Never with background or context.",
+      "Close with one actionable takeaway that applies within 24 hours."
+    ],
+    "forbidden_words": ["utilize", "leverage", "synergy", "paradigm", "holistic", "innovative", "world-class"]
+  },
+  "visual": {
+    "primary_color": "#1A1A2E",
+    "accent_color": "#E94560",
+    "background": "#FFFFFF",
+    "text": "#1A1A1A",
+    "heading_font": "Inter Bold",
+    "body_font": "Inter Regular",
+    "thumbnail_style": "Dark background, bold single word headline, accent color underline"
+  }
+}

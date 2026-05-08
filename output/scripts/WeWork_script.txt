@@ -1,0 +1,41 @@
+[TIMECODE 0:00-0:30]
+Adam Neumann walked onto a stage in 2017, barefoot, and told 5,000 employees that WeWork's purpose was to "elevate the world's consciousness."
+
+[PAUSE — 1s]
+
+One year later, the company was worth $47 billion.
+
+Seven weeks after that, it was worth zero.
+
+[VISUAL: Neumann on stage, slow zoom out to show empty space]
+
+[TIMECODE 0:30-3:00] — ACT I: THE RISE
+Neumann started WeWork in 2010. The idea was simple: lease office space, subdivide it, rent it to freelancers and startups.
+
+By 2014, WeWork had 20 locations. By 2017, it had 280.
+
+[SOURCE: Wikipedia]
+
+[TIMECODE 3:00-7:00] — ACT II: THE STRUGGLE
+The problem was hidden in plain sight. WeWork's model required occupancy rates above 80% to be profitable. Most locations ran at 60-70%.
+
+[SOURCE: SEC S-1 filing]
+
+Meanwhile, Neumann was buying buildings with WeWork money — then leasing them back to WeWork at a profit. He trademarked the word "We." He received $5.9 million for the rights.
+
+[PAUSE — 2s]
+
+The S-1 filing in August 2019 revealed all of this.
+
+[TIMECODE 7:00-9:30] — ACT III: THE RESOLUTION
+The IPO was pulled. SoftBank wrote down its $10 billion investment. Neumann was ousted with a $1.7 billion exit package.
+
+WeWork filed for bankruptcy in 2023.
+
+[SOURCE: WSJ investigation]
+
+[TIMECODE 9:30-10:00] — TAKEAWAY
+The lesson: revenue is not a business model. [EMPHASIS: Revenue is not a business model.] WeWork had revenue. It never had a profitable unit.
+
+Before you scale, prove one unit works.
+

@@ -1,0 +1,134 @@
+{
+  "name": "Business Digest — Weekly YouTube Video",
+  "description": "Weekly video pipeline: Topic → Claude script → DeepSeek voice optimization → ElevenLabs TTS → YouTube upload",
+  "nodes": [
+    {
+      "id": "schedule",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "parameters": {
+        "rule": {
+          "interval": 7,
+          "triggerAtHour": 8,
+          "triggerAtMinute": 0
+        }
+      }
+    },
+    {
+      "id": "read_file",
+      "name": "Read Topic File",
+      "type": "n8n-nodes-base.readBinaryFiles",
+      "parameters": {
+        "filePath": "/data/topics.json"
+      }
+    },
+    {
+      "id": "claude_script",
+      "name": "Claude — Script Writer",
+      "type": "n8n-nodes-base.httpRequest",
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.anthropic.com/v1/messages",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "n8n-nodes-base.httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {"name": "x-api-key", "value": "={{$credentials.claudeApiKey}}"},
+            {"name": "anthropic-version", "value": "2023-06-01"},
+            {"name": "content-type", "value": "application/json"}
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {"name": "model", "value": "claude-sonnet-4-20250514"},
+            {"name": "max_tokens", "value": 4000},
+            {"name": "messages", "value": "[{\"role\":\"system\",\"content\":\"{{prompt_screenwriter}}\"},{\"role\":\"user\",\"content\":\"Write a 10-minute documentary script for this business story.\"}]"}
+          ]
+        }
+      }
+    },
+    {
+      "id": "deepseek_voice",
+      "name": "DeepSeek — Voice Optimizer",
+      "type": "n8n-nodes-base.httpRequest",
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.deepseek.com/v1/chat/completions",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "n8n-nodes-base.httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {"name": "Authorization", "value": "Bearer {{$credentials.deepseekApiKey}}"},
+            {"name": "Content-Type", "value": "application/json"}
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {"name": "model", "value": "deepseek-chat"},
+            {"name": "messages", "value": "[{\"role\":\"system\",\"content\":\"{{prompt_speech}}\"},{\"role\":\"user\",\"content\":\"{{script_text}}\"}]"},
+            {"name": "temperature", "value": 0.3}
+          ]
+        }
+      }
+    },
+    {
+      "id": "elevenlabs_tts",
+      "name": "ElevenLabs — Text to Speech",
+      "type": "n8n-nodes-base.httpRequest",
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.elevenlabs.io/v1/text-to-speech/21m00Tcm4TlvDq8ikWAM",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "n8n-nodes-base.httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {"name": "xi-api-key", "value": "={{$credentials.elevenlabsApiKey}}"},
+            {"name": "Content-Type", "value": "application/json"}
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {"name": "text", "value": "{{voice_script}}"},
+            {"name": "model_id", "value": "eleven_monolingual_v1"},
+            {"name": "voice_settings", "value": "{\"stability\":0.5,\"similarity_boost\":0.5}"}
+          ]
+        }
+      }
+    },
+    {
+      "id": "save_audio",
+      "name": "Save Audio File",
+      "type": "n8n-nodes-base.writeBinaryFile",
+      "parameters": {
+        "filePath": "/output/voiceovers/{{company}}_audio.mp3",
+        "dataPropertyName": "data"
+      }
+    },
+    {
+      "id": "youtube_upload",
+      "name": "YouTube Upload",
+      "type": "n8n-nodes-base.youtube",
+      "parameters": {
+        "operation": "upload",
+        "title": "{{company}} — {{angle}}",
+        "description": "Business narrative documentary. Sources: Wikipedia, investigative reporting.\n\nSubscribe: https://businessdigest.com\nNewsletter: https://buttondown.email/businessdigest",
+        "categoryId": "22",
+        "privacyStatus": "public"
+      }
+    }
+  ],
+  "connections": {
+    "schedule": {"main": [[{"node": "read_file", "type": "main"}]]},
+    "read_file": {"main": [[{"node": "claude_script", "type": "main"}]]},
+    "claude_script": {"main": [[{"node": "deepseek_voice", "type": "main"}]]},
+    "deepseek_voice": {"main": [[{"node": "elevenlabs_tts", "type": "main"}]]},
+    "elevenlabs_tts": {"main": [[{"node": "save_audio", "type": "main"}]]},
+    "save_audio": {"main": [[{"node": "youtube_upload", "type": "main"}]]}
+  }
+}

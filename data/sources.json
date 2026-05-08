@@ -1,0 +1,34 @@
+{
+  "meta": {
+    "description": "Curated RSS feeds for business narrative content",
+    "last_updated": "2026-05-07",
+    "total_feeds": 18
+  },
+  "feeds": [
+    {"name": "TechCrunch", "url": "https://feeds.feedburner.com/TechCrunch/", "category": "startups"},
+    {"name": "Forbes Entrepreneurs", "url": "https://www.forbes.com/entrepreneurs/feed/", "category": "entrepreneurship"},
+    {"name": "NYT Business", "url": "https://rss.nytimes.com/services/xml/rss/nyt/Business.xml", "category": "general"},
+    {"name": "MarketWatch", "url": "https://feeds.content.dowjones.io/public/rss/mw_topstories", "category": "finance"},
+    {"name": "Wired Business", "url": "https://www.wired.com/feed/business/rss", "category": "technology"},
+    {"name": "Inc.com", "url": "https://www.inc.com/rss/feed", "category": "entrepreneurship"},
+    {"name": "HBR", "url": "https://hbr.org/data/feed/rss", "category": "management"},
+    {"name": "Stratechery", "url": "https://stratechery.com/feed/", "category": "strategy"},
+    {"name": "Both Sides", "url": "https://bothsidesofthetable.com/feed", "category": "vc"},
+    {"name": "HN Front Page", "url": "https://news.ycombinator.com/rss", "category": "technology"},
+    {"name": "Reddit Entrepreneur", "url": "https://www.reddit.com/r/Entrepreneur/.rss", "category": "community"},
+    {"name": "Reddit Startups", "url": "https://www.reddit.com/r/startups/.rss", "category": "community"},
+    {"name": "Reddit Business", "url": "https://www.reddit.com/r/business/.rss", "category": "general"},
+    {"name": "Product Hunt", "url": "https://www.producthunt.com/feed", "category": "products"},
+    {"name": "Bloomberg", "url": "https://feeds.bloomberg.com/markets/news.rss", "category": "finance"},
+    {"name": "FT", "url": "https://www.ft.com/companies/feed", "category": "general"},
+    {"name": "BBC Business", "url": "https://feeds.bbci.co.uk/news/business/rss.xml", "category": "general"},
+    {"name": "Reuters", "url": "https://www.reutersagency.com/feed/", "category": "general"}
+  ],
+  "niche": {
+    "name": "Business Narrative Stories",
+    "description": "Narrative-driven business content: startup failures, founder origin stories, company breakdowns, strategic turning points. Audience: entrepreneurs, operators, investors. Format: documentary-style storytelling.",
+    "target_rpm": "18-32 USD",
+    "content_cadence": "Weekly newsletter (Sat) + Weekly video (Wed) + Daily social (Mon-Fri)",
+    "excluded_topics": ["stock tips", "crypto price speculation", "financial advice", "political commentary"]
+  }
+}

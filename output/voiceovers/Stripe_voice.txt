@@ -1,0 +1,31 @@
+[Estimated: 9 minutes, 20 seconds]
+
+Two Irish brothers. One payment integration. A 95 billion dollar company.
+
+[PAUSE — 1s]
+
+And neither of them knew anything about payments.
+
+Patrick Collison was 16 when he won the Young Scientist of Ireland award. His brother John was 14.
+
+They built their first company, Auctomatic, at 17 and 19. Sold it for five million dollars.
+
+They started Stripe in 2011 because every payment system at the time was terrible.
+
+[PAUSE — 1s]
+
+PayPal's API required six months to integrate. Authorize.net was 2002 technology. Square was for physical stores.
+
+The breakthrough: seven lines of code. That was Stripe's promise.
+
+But in 2012, a major problem. Their processor, Wells Fargo, threatened to cut them off. Stripe was processing payments for Bitcoin companies. Wells Fargo's compliance team flagged this as high-risk.
+
+[PAUSE — 1s]
+
+They found a new processing partner. Kept growing.
+
+By 2024, Stripe was processing one trillion dollars in payments annually. Valued at 95 billion dollars.
+
+The lesson: make the hard thing simple. Stripe's entire thesis was reducing complexity. Seven lines of code. That was their moat.
+
+What can you reduce to one line?

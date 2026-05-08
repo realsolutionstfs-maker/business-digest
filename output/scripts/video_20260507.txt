@@ -1,0 +1,37 @@
+[0:00]
+**HOOK**
+[VISUAL: Split screen: Sam Altman, intense, then Matt Garman, focused. Both in a high-stakes meeting room.]
+
+In a room buzzing with anticipation, Sam Altman leaned forward. He looked at Matt Garman. "This isn't just about code," Altman said. "It's about trust."
+
+[PAUSE]
+
+[0:30]
+**ACT I — THE RISE**
+[VISUAL: Early photos of Sam Altman, then Matt Garman. Quick cuts of early tech development.]
+
+Sam Altman always chased the future. He saw AI not as a tool, but as a new frontier. He built OpenAI to push those boundaries. His vision was grand. He wanted AI to benefit all humanity. [SOURCE: OpenAI Charter]
+
+Matt Garman built the backbone of the internet. He rose through Amazon Web Services. AWS powered countless companies. Garman understood scale. He understood infrastructure. He knew how to deliver reliability. [SOURCE: AWS Leadership Bio]
+
+Altman wanted to make AI accessible. He wanted developers to build on powerful models. But raw AI models were complex. They needed massive computing power. They needed robust infrastructure.
+
+Garman saw the AI explosion coming. He knew AWS had to adapt. Developers needed more than just servers. They needed managed services. They needed AI tools integrated seamlessly.
+
+[1:30]
+[VISUAL: Stock footage of data centers, then developers coding.]
+
+OpenAI launched ChatGPT. It captivated the world. Millions used it daily. This created a new challenge. How could OpenAI scale its models? How could they reach every developer?
+
+AWS had its own AI initiatives. They developed Bedrock. Bedrock offered foundational models. It allowed developers to build AI applications. But Bedrock needed more. It needed the best models.
+
+[2:00]
+[VISUAL: Graphic: "OpenAI + AWS Bedrock?"]
+
+The two companies were giants. They operated in different spheres. OpenAI built the brains. AWS built the body. Their paths seemed destined to cross.
+
+Altman knew OpenAI couldn't do it alone. Scaling AI required immense resources. It required a partner with global reach. He needed a platform.
+
+Garman knew AWS needed cutting-edge AI. Customers demanded the best. They wanted choice. They wanted integration. He needed the leading models.
+
+[

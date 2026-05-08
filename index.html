@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Business Digest — Three moves. Every Saturday. Zero noise.</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0F0F1A;
+      color: #E0E0E0;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .container { max-width: 520px; padding: 40px 24px; text-align: center; }
+    h1 {
+      font-size: 36px;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 8px;
+      letter-spacing: -0.5px;
+    }
+    .tagline {
+      font-size: 13px;
+      color: #E94560;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 32px;
+    }
+    .accent { width: 48px; height: 3px; background: #E94560; margin: 0 auto 32px; }
+    p {
+      font-size: 15px;
+      color: #A0A0B0;
+      margin-bottom: 20px;
+      line-height: 1.7;
+    }
+    .pillars {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      margin-bottom: 36px;
+      flex-wrap: wrap;
+    }
+    .pillar {
+      background: #1A1A2E;
+      border: 1px solid #2A2A3E;
+      border-radius: 8px;
+      padding: 12px 18px;
+      font-size: 13px;
+      color: #C0C0D0;
+    }
+    .pillar strong { color: #FFFFFF; display: block; font-size: 15px; margin-bottom: 2px; }
+    .form { display: flex; gap: 8px; max-width: 420px; margin: 0 auto; }
+    .form input {
+      flex: 1;
+      padding: 12px 16px;
+      border: 1px solid #2A2A3E;
+      border-radius: 6px;
+      background: #1A1A2E;
+      color: #FFFFFF;
+      font-size: 14px;
+      outline: none;
+    }
+    .form input:focus { border-color: #E94560; }
+    .form button {
+      padding: 12px 24px;
+      background: #E94560;
+      color: #FFFFFF;
+      border: none;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .form button:hover { background: #D63850; }
+    .note { font-size: 12px; color: #606070; margin-top: 12px; }
+    .footer { margin-top: 48px; font-size: 12px; color: #404050; }
+    .footer a { color: #E94560; text-decoration: none; }
+    @media (max-width: 480px) {
+      h1 { font-size: 28px; }
+      .form { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="tagline">Weekly Newsletter</div>
+    <h1>Business Digest</h1>
+    <div class="accent"></div>
+    <p>
+      One story. One framework. One move.<br>
+      Every Saturday morning. 3-minute read. Zero fluff.
+    </p>
+
+    <div class="pillars">
+      <div class="pillar"><strong>System</strong>Business narrative</div>
+      <div class="pillar"><strong>Tool</strong>Actionable framework</div>
+      <div class="pillar"><strong>Move</strong>Strategic takeaway</div>
+    </div>
+
+    <form class="form" action="https://buttondown.email/api/emails/embed-subscribe/Business_Digest" method="post" target="popupwindow">
+      <input type="email" name="email" placeholder="your@email.com" required>
+      <button type="submit">Subscribe Free</button>
+    </form>
+    <div class="note">No spam. Unsubscribe anytime.</div>
+
+    <div style="margin-top: 32px; padding: 16px; background: #1A1A2E; border: 1px solid #2A2A3E; border-radius: 8px; font-size: 13px;">
+      <strong style="color: #E94560;">Sponsor</strong><br>
+      <span style="color: #808090;">Get your brand in front of 1,000+ founders & operators.</span><br>
+      <a href="mailto:sponsor@businessdigest.com" style="color: #E94560;">Sponsor a future issue →</a>
+    </div>
+
+    <div class="footer">
+      <a href="https://buttondown.com/Business_Digest/archive" target="_blank">Archive</a>
+      &middot; Powered by <a href="https://github.com/anomalyco/opencode" target="_blank">opencode</a>
+      &middot; 2026
+    </div>
+  </div>
+</body>
+</html>

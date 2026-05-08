@@ -157,6 +157,14 @@ class Orchestrator:
             path = BASE_DIR / "output" / "social" / f"{platform}_{datetime.now().strftime('%Y%m%d')}_daily.txt"
             path.write_text(content)
         logger.info(f"  Daily social generated ({', '.join(social.keys())})")
+
+        from .social_publisher import publish_daily
+        result = publish_daily()
+        if result:
+            logger.info("  LinkedIn: posted!")
+        else:
+            logger.info("  LinkedIn: skipped (no token or no content)")
+
         logger.info("=" * 60)
         logger.info("DAILY SOCIAL COMPLETE")
         logger.info("=" * 60)

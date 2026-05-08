@@ -61,7 +61,8 @@ cp .env.example .env
 
 - Newsletter archive: https://buttondown.com/Business_Digest/archive
 - Subscribe: https://buttondown.com/Business_Digest
-- Landing: `python3 server.py` → http://localhost:8080
+- Landing: https://realsolutionstfs-maker.github.io/business-digest/
+- Local: `python3 server.py` → http://localhost:8080
 
 ## Automation
 
